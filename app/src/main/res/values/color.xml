@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#50B749</color>
+    <color name="primaryDark">#40923a</color>
+    <color name="hint_text">#b3b3b3</color>
+    <color name="history_text">#4d4d4d</color>
+    <color name="reset_button">#41943a</color>
+
+</resources>

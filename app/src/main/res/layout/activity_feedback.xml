@@ -1,0 +1,81 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.mapplinks.rdcalculator.FeedbackActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Your Feedback is important to us!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        android:textColor="@color/primary"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"/>
+    <EditText
+        android:background="@drawable/round_rect_box"
+        android:layout_marginBottom="10dp"
+        android:padding="16dp"
+        android:id="@+id/name_add"
+        android:textSize="14sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:drawableBottom="@color/primaryDark"
+        android:hint="NAME:"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:textColorHint="@color/hint_text" />
+    <EditText
+        android:background="@drawable/round_rect_box"
+        android:layout_marginBottom="10dp"
+        android:padding="15dp"
+        android:id="@+id/email_add"
+        android:textSize="14sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:drawableBottom="@color/primaryDark"
+        android:hint="EMAIL:"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="10dp"
+        android:textColorHint="@color/hint_text" />
+
+    <EditText
+        android:textColorHint="@color/hint_text"
+        android:background="@drawable/round_rect_box"
+        android:layout_marginBottom="10dp"
+        android:padding="15dp"
+        android:textSize="14sp"
+        android:hint="FEEDBACK:"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:lines="4"
+        android:id="@+id/feedback"
+        android:drawableBottom="@color/primary"
+        android:drawableTop="@color/primary"
+        />
+    <Button
+        android:padding="15dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/submit_feedback"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/primary"
+        android:text="Submit"
+        android:clickable="true"
+        android:textColor="@android:color/white"
+         />
+
+</LinearLayout>
