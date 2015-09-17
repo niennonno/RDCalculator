@@ -1,9 +1,11 @@
 package com.mapplinks.rdcalculator;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -131,6 +133,27 @@ public class FeedbackActivity extends AppCompatActivity {
                 Toast.makeText(FeedbackActivity.this, "Message Sent!", Toast.LENGTH_SHORT).show();
         }
     }
+    private boolean MyStartActivity(Intent aIntent) {
+        try {
+            startActivity(aIntent);
+            return true;
+        } catch (ActivityNotFoundException e) {
+            return false;
+        }
+    }
+
+    private void shareTextUrl() {
+        Intent share = new Intent(android.content.Intent.ACTION_SEND);
+        share.setType("text/plain");
+        share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+
+        // Add data to the intent, the receiving app will decide
+        // what to do with it.
+        share.putExtra(Intent.EXTRA_SUBJECT, "Recurring Deposit Calculator ");
+        share.putExtra(Intent.EXTRA_TEXT, "I am using RD Calculator to improve my #sales efficiency via @Mapplinks. Find it here: https://goo.gl/a3fQRp");
+
+        startActivity(Intent.createChooser(share, "Spread the Word!"));
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -140,8 +163,17 @@ public class FeedbackActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.rate) {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("market://details?id=com.mapplinks.rdcalculator"));
+            if (!MyStartActivity(intent)) {
+                intent.setData(Uri.parse("https://play.google.com/store/apps/details?[Id]"));
+                if (!MyStartActivity(intent)) {
+                    Toast.makeText(this, "Could not open Android market, please install the market app.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }else if (id == R.id.share) {
+            shareTextUrl();
         }
 
         return super.onOptionsItemSelected(item);
